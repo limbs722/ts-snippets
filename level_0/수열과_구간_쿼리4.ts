@@ -24,7 +24,7 @@
             따라서 [3, 2, 4, 6, 4]를 return 합니다.
  */
 
-function solution(arr, queries) {
+function queries4(arr: number[], queries: number[][]) {
     let answer = arr;
     queries.forEach((v) => {
         for(let i = v[0]; i <= v[1]; i++) {

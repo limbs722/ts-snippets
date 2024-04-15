@@ -17,8 +17,8 @@
 
 */
 
-function solution(l, r) {
-    let answer = [];
+function makeArray2(l: number, r: number) {
+    let answer: number[] = [];
     for(let i = l; i <= r; i++) {
         const strArr = i.toString().split('');
         const check = strArr.filter(v => v !== '0' && v !== '5');
