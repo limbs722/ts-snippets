@@ -12,6 +12,8 @@
                 3부터 10까지의 숫자들을 담은 리스트 [3, 4, 5, 6, 7, 8, 9, 10]를 return합니다.
  */
 function countUp(start_num: number, end_num: number) {
-    const answer = Array.from({ length: (end_num - start_num) + 1 }, (_, i) => start_num + i)
-    return answer;
+    // lodash method 중 'range' 사용 가능
+    // import _ from lodash
+    // _.range(start_num, end_num + 1)
+    return Array.from({ length: (end_num - start_num) + 1 }, (_, i) => start_num + i)
 }

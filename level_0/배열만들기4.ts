@@ -34,20 +34,15 @@
 
 function makeArray4(arr: number[]) {
     let stk: number[] = [];
-    let i = 0;
 
-    while(i < arr.length) {
-        if (stk.length === 0) {
+    for(let i = 0; i < arr.length; i++) {
+        if (stk.length === 0 || stk.slice(-1)[0] < arr[i]) {
             stk = [...stk, arr[i]];
-            i++;
-        } else {
-            if (stk.slice(-1)[0] < arr[i]) {
-                stk = [...stk, arr[i]];
-                i++;
-            } else {
-                stk.pop();
-            }
+            continue;
         }
+        stk.pop();
+        i--;
     }
+
     return stk;
 }
