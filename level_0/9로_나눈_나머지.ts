@@ -2,7 +2,6 @@
 
 function remainder(number: string) {
     return number.split('').reduce((acc, value) => {
-        acc += Number(value);
-        return acc;
+        return acc + Number(value);
     }, 0) % 9;
 }
