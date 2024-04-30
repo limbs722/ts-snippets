@@ -2,7 +2,7 @@
 
 function stringCount(my_string: string) {    
     const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    const result = Array(52).fill(0);
+    const result = Array(alpha.length).fill(0);
     
     [...my_string].forEach((i) => {
         result[alpha.indexOf(i)] += 1;
