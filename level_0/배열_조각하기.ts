@@ -2,12 +2,9 @@
 
 function carveOutArray(arr: number[], query: number[]) {
     let result = arr;
-    query.map((v, i) => {
-        if (i % 2 === 0) {
-            result = result.slice(0, v + 1);
-        } else {
-            result = result.slice(v);
-        }
+
+    query.forEach((v, i) => {
+        result = i % 2 === 0 ? result.slice(0, v + 1) : result.slice(v);
     })
     
     return result;
