@@ -4,7 +4,7 @@ function carveOutArray(arr: number[], query: number[]) {
     let result = arr;
 
     query.forEach((v, i) => {
-        result = i % 2 === 0 ? result.slice(0, v + 1) : result.slice(v);
+        result = result.slice(...i % 2 === 0 ? [0, v + 1] : [v]);
     })
     
     return result;
