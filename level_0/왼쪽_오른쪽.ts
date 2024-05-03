@@ -2,11 +2,11 @@
 
 function leftRight(str_list: string[]) {
     for (const [idx, ele] of str_list.entries()) {
-        if (ele === 'l') {
-            return str_list.slice(0, idx)
-        } else if (ele === 'r') {
-            return str_list.slice(idx + 1);
+        if (ele !== 'l' && ele !== 'r') {
+            continue;
         }
+
+        return str_list.slice(...ele === 'l' ? [0, idx] : [idx + 1]);
     }
     
     return [];

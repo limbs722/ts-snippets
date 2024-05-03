@@ -1,6 +1,6 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/181911
 
-function makeString(my_strings: string[], parts: number[][]) {
+function makeRelayString(my_strings: string[], parts: number[][]) {
 
     // lodash zip 메소드를 사용한 예시
 
