@@ -3,8 +3,7 @@
 function queries1(arr: number[], queries: [number[], number[], number[]]) {
     let result = arr;
     
-    queries.forEach((query) => {
-        const [s, e] = query;
+    queries.forEach(([s, e]) => {
         result = result.map((v, i) => {
             if (i >= s && i <= e) {
                 v += 1;

@@ -17,10 +17,10 @@ function sequenceChange2(arr: number[]) {
 
         if (prevArr.every((value, i) => value === currArr[i])) {
             break;
-        } else {
-            prevArr = currArr;
-            result++;
         }
+
+        prevArr = currArr;
+        result++;
     }
     return result;
 }
