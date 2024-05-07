@@ -2,13 +2,12 @@
 
 function simpleCalc(binomial: string) {
     const [a, op, b] = binomial.split(' ');
-    
-    switch (op) {
-        case '+':
-            return Number(a) + Number(b);
-        case '-':
-            return Number(a) - Number(b);
-        default: // '*'
-            return Number(a) * Number(b);
-    }
+
+    const ops = {
+        '+': (a: number, b: number) => a + b,
+        '-': (a: number, b: number) => a - b,
+        '*': (a: number, b: number) => a * b,
+    };
+
+    return ops[op](Number(a), Number(b));
 }

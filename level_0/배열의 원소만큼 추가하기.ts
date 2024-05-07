@@ -1,11 +1,13 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/181861
 
 function addElement(arr: number[]) {
-    return arr.reduce((acc: number[], value: number) => {
+    let answer: number[] = [];
+    
+    arr.forEach((value) => {
         for (let i = 0; i < value; i++) {
-            acc.push(value);
+            answer.push(value);
         }
-        
-        return acc;
-    }, []);
+    })
+    
+    return answer;
 }
