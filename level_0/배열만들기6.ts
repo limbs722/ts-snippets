@@ -1,19 +1,18 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/181859
 
 function makeArray6(arr: number[]) {
-    let stk = [];
+    let stk: number[] = [];
     
-    for (let i = 0; i < arr.length; i++) {
+    for (let item of arr) {
         if (stk.length > 0) {
-            if (stk[stk.length - 1] === arr[i]) {
+            if (stk.at(-1) === item) {
                 stk.pop();
             } else {
-                stk.push(arr[i]);
+                stk.push(item);
             }
         } else {
-            stk.push(arr[i]);
+            stk.push(item);
         }
-        
     }
     
     return stk.length === 0 ? [-1] : stk;
