@@ -4,14 +4,10 @@ function makeArray6(arr: number[]) {
     let stk: number[] = [];
     
     for (let item of arr) {
-        if (stk.length > 0) {
-            if (stk.at(-1) === item) {
-                stk.pop();
-            } else {
-                stk.push(item);
-            }
-        } else {
+        if (stk.at(-1) !== item) {
             stk.push(item);
+        } else {
+            stk.splice(-1);
         }
     }
     
