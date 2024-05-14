@@ -4,7 +4,7 @@ function groupingString(strArr: string[]) {
     let answer = {};
     
     strArr.forEach((str) => {
-        answer[str.length] = answer[str.length] + 1 || 1;
+        answer[str.length] = (answer[str.length] ?? 0) + 1;
     });
     
     return Math.max(...Object.values(answer));

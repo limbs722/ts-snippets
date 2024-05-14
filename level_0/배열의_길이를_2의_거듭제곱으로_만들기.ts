@@ -6,11 +6,11 @@ function powNlog2(arr: number[]) {
     while (true) {
         const sqrt = Math.log2(answer.length);
         
-        if (sqrt % 1 !== 0) {
-            answer.push(0);
-        } else {
+        if (sqrt % 1 === 0) {
             break;
         }
+        
+        answer.push(0);
     }
     
     return answer;
