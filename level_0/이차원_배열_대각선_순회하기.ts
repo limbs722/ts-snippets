@@ -3,10 +3,10 @@
 function diagonalLoop(board: number[][], k: number) {
     let result = 0;
     
-    board.forEach((value, i) => {
-        value.forEach((_, j) => {
+    board.forEach((row, i) => {
+        row.forEach((ele, j) => {
             if (i + j <= k) {
-                result += board[i][j];
+                result += ele;
             }
         })
     })

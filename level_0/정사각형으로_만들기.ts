@@ -6,19 +6,16 @@ function makeSquare(arr: number[][]) {
     const col = answer[0].length;
     
     if (col < row) {
-        return answer.map((v) => {
-            for (let i = 0; i < (row - col); i++) {
-                v.push(0);
+        for(let i=0; i < row; i++) {
+            for(let j=0; j < (row - col); j++) {
+                answer[i].push(0);
             }
-            return v;
-        })
-    } 
-    
-    if (col > row) {
+        }
+    } else if (col > row) {
         for (let i = 0; i < (col - row); i++) {
             answer.push(Array(col).fill(0));
         }
     }
-    
+
     return answer;
 }
