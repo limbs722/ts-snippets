@@ -1,6 +1,5 @@
-// https://school.programmers.co.kr/learn/courses/30/lessons/181846
+// https://school.programmers.co.kr/learn/courses/30/lessons/120802
 
-function twoSum(a: string, b:string) {
-    // BigInt
-    return String(BigInt(a) + BigInt(b));
+function simpleSum(num1: number, num2: number) {
+    return num1 + num2;
 }
