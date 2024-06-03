@@ -1,16 +1,17 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/120812
 
 function getMode(array: number[]) {
-    const countObj = array.reduce((acc, value) => {
-        acc[value] = (acc[value] ?? 0) + 1;
-        return acc;
-    }, {});
+    let countMap = new Map();
     
-    const max = Math.max(...Object.values(countObj));
+    for (let num of array) {
+        countMap.set(num, (countMap.get(num) ?? 0) + 1);
+    }
     
-    if (Object.values(countObj).filter((v) => v === max).length > 1) {
+    const max = Math.max(...countMap.values());
+    
+    if ([...countMap.values()].filter((v) => v === max).length > 1) {
         return -1;
     }
     
-    return Number(Object.keys(countObj).find(key => countObj[key] === max));
+    return [...countMap].sort(([a_num, a_cnt], [b_num, b_cnt]) => b_cnt - a_cnt)[0][1];
 }
