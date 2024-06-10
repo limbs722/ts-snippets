@@ -6,10 +6,12 @@ function getMode(array: number[]) {
     for (let num of array) {
         countMap.set(num, (countMap.get(num) ?? 0) + 1);
     }
+
+    const values = [...countMap.values()];
     
-    const max = Math.max(...countMap.values());
+    const max = Math.max(...values);
     
-    if ([...countMap.values()].filter((v) => v === max).length > 1) {
+    if (values.filter((v) => v === max).length > 1) {
         return -1;
     }
     
