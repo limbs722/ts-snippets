@@ -7,9 +7,9 @@ function discountClothes(price: number) {
         [100000,  0.05],
     ];
 
-    for (const tier of discounts) {
-        if (price >= tier[0]) {
-            return Math.floor(price - (price * tier[1]));
+    for (const [baseline, percentage] of discounts) {
+        if (price >= baseline) {
+            return Math.floor(price - (price * percentage));
         }
     }
 
