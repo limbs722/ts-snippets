@@ -3,10 +3,10 @@
 function alienAge(age: number) {
     const alphabetStr = 'abcdefghij';
     const alphabetMap = new Map();
-    
-    [...alphabetStr].forEach((v, i) => {
-        alphabetMap.set(String(i), v);
-    });
+
+    for (let i = 0; i < alphabetStr.length; i++) {
+        alphabetMap.set(String(i), alphabetStr[i]);
+    }
     
     return [...String(age)].map((v) => (alphabetMap.get(v))).join('');
 
