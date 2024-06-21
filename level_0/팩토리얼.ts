@@ -1,11 +1,7 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/120848
 
 function factorialRecursive(n: number): number {
-  if (n === 1) {
-      return 1;
-  } else {
-      return n * factorialRecursive(n - 1);
-  }
+	return n === 1 ? 1 : n * factorialRecursive(n - 1);
 }
 
 function factorial(n: number) {
@@ -17,9 +13,8 @@ function factorial(n: number) {
       if (factorial > n) {
           index--;
           break;
-      } else {
-          index++;
       }
+      index++;
   }
   
   return index;
