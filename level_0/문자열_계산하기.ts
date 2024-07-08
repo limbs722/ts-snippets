@@ -8,13 +8,13 @@ function calcString(my_string: string) {
       '-': (a: number, b: number) => a - b
   };
   
-  let answer = 0;
+  let answer = Number(calcArr[0]);
   let op = ''
   
   calcArr.forEach((v, i) => {
-      if (i === 0) {
-          answer = Number(v);
-      } else if (i % 2 === 0) {
+      if (i === 0) return;
+      
+      if (i % 2 === 0) {
           answer = ops[op](answer, Number(v));
       } else {
           op = v;
