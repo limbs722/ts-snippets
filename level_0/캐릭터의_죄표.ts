@@ -5,10 +5,10 @@ function movePosition(keyinputs: string[], board: number[]) {
   let pos: Position = [0, 0];
 
   const move = {
-      left: ([posX, posY]) => [posX > -x_len ? posX - 1 : posX, posY],
-      right: ([posX, posY]) => [posX < x_len ? posX + 1 : posX, posY],
-      up: ([posX, posY]) => [posX, posY < y_len ? posY + 1 : posY],
-      down: ([posX, posY]) => [posX, posY > -y_len ? posY - 1 : posY],
+    left: ([posX, posY]) => ([Math.max(posX - 1, -x_len), posY]),
+    right: ([posX, posY]) => ([Math.min(posX + 1, x_len), posY]),
+    up: ([posX, posY]) => ([posX, Math.min(posY + 1, y_len)]),
+    down: ([posX, posY]) => ([posX, Math.max(posY - 1, -y_len)])
   } satisfies Record<string, (_: Position) => Position>;
 
   return keyinputs.reduce((acc, keyinput) => move[keyinput](acc), pos);
