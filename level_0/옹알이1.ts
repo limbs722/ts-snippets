@@ -5,12 +5,12 @@ function babbling1(babbling: string[]) {
     let answer = 0;
     
     babbling.forEach((bab) => {
-        const filter = babblingList.filter((v) => bab.includes(v));
-        if (filter.length > 0) {
+        const filterArr = babblingList.filter((v) => bab.includes(v));
+        if (filterArr.length > 0) {
             let str = bab;
-            filter.forEach((v) => {
-                str = str.replace(v, '');
-            });
+            str = filterArr.reduce((acc, value) => {
+                return acc.replace(value, '');
+            }, str);
             
             if (str.length === 0) {
                 answer++;
