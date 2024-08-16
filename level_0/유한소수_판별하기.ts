@@ -7,7 +7,7 @@ function judgeFinitePrimeNumber(a: number, b: number) {
     }
         
     // 소인수분해 하기
-    function primeFactors(n: number) {
+    function primeFactors(n: number): Set<number> {
         let result = [];
         let divisor = 2;
         
@@ -17,8 +17,8 @@ function judgeFinitePrimeNumber(a: number, b: number) {
                 n = n / divisor;
             }
             else divisor++;
-        }    
-        return [...new Set(result)];
+        }
+        return new Set(result);
     }
 
     const gcd = calc_gcd(a, b);
@@ -26,5 +26,5 @@ function judgeFinitePrimeNumber(a: number, b: number) {
     b = b / gcd;
 
     const primes = primeFactors(b);
-    return primes.find(n => n !== 2 && n !== 5) ? 2 : 1
+    return [...primes].find(n => n !== 2 && n !== 5) ? 2 : 1
 }
