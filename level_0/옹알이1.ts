@@ -8,9 +8,7 @@ function babbling1(babbling: string[]) {
         const filterArr = babblingList.filter((v) => bab.includes(v));
         if (filterArr.length > 0) {
             let str = bab;
-            str = filterArr.reduce((acc, value) => {
-                return acc.replace(value, '');
-            }, str);
+            str = filterArr.reduce((acc, value) => acc.replace(value, ''), str);
             
             if (str.length === 0) {
                 answer++;
