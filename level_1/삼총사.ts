@@ -1,36 +1,20 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/131705?language=javascript
 
-function trio(number: number[], n: number) {
-    let count = 0;
-    let combination: number[] = [];
-
-    function find(index: number, start: number) {
-        if (index === n) {
-            const sum = combination.reduce((acc, value) => acc + value, 0);
-            if (sum === 0) {
-                count++;
-            }
-            return;
+function trio(number: number[], n: number): number {
+    function find(start: number, combination: number[]): number {
+        // combination: 현재까지의 조합
+        if (combination.length === n) {
+            return combination.reduce((sum, num) => sum + num, 0) === 0 ? 1 : 0;
         }
 
+        let count = 0;
         for (let i = start; i < number.length; i++) {
-            combination[index] = number[i];
-            find(index + 1, i + 1);
+            count += find(i + 1, [...combination, number[i]]);
         }
+        return count;
     }
 
-    find(0, 0);
-    return count;
-
-    // for (let i = 0; i < len - 2; i++) {
-    //     for (let j = i + 1; j < len - 1; j++) {
-    //         for (let k = j + 1; k < len; k++) {
-    //             const sum = number[i] + number[j] + number[k];
-    //             if (sum === 0) {
-    //                 console.log(number[i], number[j], number[k]);
-    //                 answer++;
-    //             }
-    //         }
-    //     }
-    // }
+    return find(0, []);
 }
+
+console.log(trio([-3, -2, -1, 0, 1, 2, 3], 3));
