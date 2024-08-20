@@ -3,9 +3,8 @@
 function nextNumber(common: number[]): number {
     const [first, second, third] = common;
     const len = common.length;
-    const check = (second - first) === (third - second)
     
-    if (check) {
+    if ((second - first) === (third - second)) {
         const diff = second - first;
         return first + (len * diff);
     } else {
