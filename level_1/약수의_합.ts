@@ -9,6 +9,7 @@ function getDivisors(n: number): number[] {
         if (n % count === 0) {
             result.push(count);
         }
+        count++;
     }
 
     return result;
@@ -18,3 +19,5 @@ function sumOfDivisor(n: number): number {
     const result = getDivisors(n);
     return _.sum(result);
 }
+
+console.log(sumOfDivisor(12)); // 28
