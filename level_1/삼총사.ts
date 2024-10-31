@@ -14,11 +14,16 @@ function* combinationGenerator(
     }
 }
 
+function* trioGenerator(numbers: number[], n: number): Generator<number[]> {
+    for (const comb of combinationGenerator(numbers, n)) {
+        if (comb.reduce((acc, cur) => acc + cur, 0) === 0) {
+            yield comb;
+        }
+    }
+}
+
 function trio(numbers: number[], n: number): number[][] {
-    const res = combinationGenerator(numbers, n);
-    return Array.from(res).filter(
-        comb => comb.reduce((acc, cur) => acc + cur, 0) === 0
-    );
+    return [...trioGenerator(numbers, n)];
 }
 
 console.log(trio([-3, -2, -1, 0, 1, 2, 3], 3));
